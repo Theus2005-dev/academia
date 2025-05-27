@@ -1,8 +1,0 @@
-com\mycompany\academia\Academia.class
-com\mycompany\academia\model\Aluno.class
-com\mycompany\academia\repository\AlunoRepositoryDB.class
-com\mycompany\academia\repository\FichaTreinoRepositoryDB.class
-com\mycompany\academia\model\Plano.class
-com\mycompany\academia\model\FichaTreino.class
-com\mycompany\academia\repository\PlanorepositoryDB.class
-com\mycompany\academia\database\Conexao.class

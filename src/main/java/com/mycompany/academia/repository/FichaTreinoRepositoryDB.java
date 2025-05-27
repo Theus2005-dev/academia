@@ -1,25 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.academia.repository;
+package repository;
 
-import com.mycompany.academia.database.Conexao;
-import com.mycompany.academia.model.FichaTreino;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import database.Conexao;
+import model.FichaTreino;
+
+import java.sql.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author USUARIO
- */
 public class FichaTreinoRepositoryDB {
-    
-    
-     public void adicionar(FichaTreino ficha) {
+    public void adicionar(FichaTreino ficha) {
         String sql = "INSERT INTO ficha_treino (aluno_id, descricao) VALUES (?, ?)";
         try (Connection conn = Conexao.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -50,15 +38,5 @@ public class FichaTreinoRepositoryDB {
             e.printStackTrace();
         }
         return fichas;
-    }
-    public void excluirFicha(int id){
-        String sql = "delete from ficha_treino where id =?";
-        try(Connection conn = Conexao.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

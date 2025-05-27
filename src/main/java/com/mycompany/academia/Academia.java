@@ -33,6 +33,7 @@ public class Academia {
             System.out.println("6. Listar Fichas de um Aluno");
             System.out.println("7. Alterar dados de de um Aluno");
             System.out.println("8. Deletar dados de de um Aluno");
+            System.out.println("9. Deletar fichas de de um Aluno");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             int opcao = scanner.nextInt();
@@ -100,6 +101,12 @@ public class Academia {
                     String emailDeletar = scanner.nextLine();
                     AlunoRepositoryDB alunoRe = new AlunoRepositoryDB();
                     alunoRe.deletar(emailDeletar);
+                    break;
+                case 9:
+                    System.out.println("Id da ficha");
+                    int id = scanner.nextInt();
+                    FichaTreinoRepositoryDB fichaTreino = new FichaTreinoRepositoryDB();
+                    fichaTreino.excluirFicha(id);
                     break;
                 case 0:
                     System.out.println("Saindo...");

@@ -17,6 +17,8 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class FichaTreinoRepositoryDB {
+    
+    
      public void adicionar(FichaTreino ficha) {
         String sql = "INSERT INTO ficha_treino (aluno_id, descricao) VALUES (?, ?)";
         try (Connection conn = Conexao.getConnection();
@@ -48,5 +50,15 @@ public class FichaTreinoRepositoryDB {
             e.printStackTrace();
         }
         return fichas;
+    }
+    public void excluirFicha(int id){
+        String sql = "delete from ficha_treino where id =?";
+        try(Connection conn = Conexao.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

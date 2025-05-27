@@ -1,24 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.academia.repository;
+package repository;
 
-import com.mycompany.academia.database.Conexao;
-import com.mycompany.academia.model.Plano;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import database.Conexao;
+import model.Plano;
+
+import java.sql.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author USUARIO
- */
-public class PlanorepositoryDB {
-     public void adicionar(Plano plano) {
+public class PlanoRepositoryDB {
+    public void adicionar(Plano plano) {
         String sql = "INSERT INTO plano (nome, descricao) VALUES (?, ?)";
         try (Connection conn = Conexao.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

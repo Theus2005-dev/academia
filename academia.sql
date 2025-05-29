@@ -22,4 +22,4 @@ CREATE TABLE ficha_treino (
   aluno_id INT,
   descricao TEXT,
   FOREIGN KEY (aluno_id) REFERENCES aluno(id)
-)
+);
